@@ -13,6 +13,10 @@
 
 ### [Class 3](Class3.md): Friday, March 24 – String Algorithms
 
+### [Class 4](Class4.md): Monday, March 27 – List, Array & Linked List
+
+### [Class 5](Class5.md): Wednesday, March 29 – List, Stack & Queue
+
 
 ## Working with this GitHub repository
 

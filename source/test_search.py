@@ -24,7 +24,7 @@ class TestSearch(unittest.TestCase):
         assert linear_search(names, 'Jeremy') is None
         assert linear_search(names, 'nobody') is None
 
-    def disable_test_binary_search_with_items_in_list(self):
+    def test_binary_search_with_items_in_list(self):
         # binary search requires list values to be in sorted order
         names = ['Alex', 'Brian', 'Julia', 'Kojin', 'Nabil', 'Nick', 'Winnie']
         # binary search should return the index of each item in the list
@@ -36,7 +36,7 @@ class TestSearch(unittest.TestCase):
         assert binary_search(names, 'Nick') == 5
         assert binary_search(names, 'Winnie') == 6
 
-    def disable_test_binary_search_with_items_not_in_list(self):
+    def test_binary_search_with_items_not_in_list(self):
         # binary search requires list values to be in sorted order
         names = ['Alex', 'Brian', 'Julia', 'Kojin', 'Nabil', 'Nick', 'Winnie']
         # binary search should return None for any item not in the list

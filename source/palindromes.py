@@ -21,7 +21,6 @@ def is_palindrome_iterative(text):
         if string[index] != string[(length-1)-index]:
             return False
     return True
-    pass
 
 
 def is_palindrome_recursive(text, left=None, right=None):
@@ -31,14 +30,13 @@ def is_palindrome_recursive(text, left=None, right=None):
         return True
     string = ''.join(e for e in text if e.isalnum()).lower()
     left = string[0]
-    right = string[len(string)-1]
+    right = string[-1]
     if left != right:
         return False
     else:
         str = string[1:-1]
         return is_palindrome_recursive(str, left, right)
     return True
-
 
 def main():
     import sys

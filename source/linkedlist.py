@@ -75,6 +75,11 @@ class LinkedList(object):
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node at the given index and return the node's data
+        current_node = self.head
+        while index != 0:
+            index -= 1
+            current_node = current_node.next
+        return current_node
 
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
@@ -83,6 +88,25 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert the item after
+        if self.is_empty:
+            new_node = Node(item)
+            self.head = new_node
+            self.tail = new_node
+        if self.size == 1:
+            new_node = Node(item)
+            new_node.next = self.head
+            self.head = new_node
+        current_node = self.head
+        while index != 0:
+            index -= 1
+            current_node = current_node.next
+        next_node = current_node.next
+        new_node = Node(item)
+        new_node.next = next_node
+        current_node.next = new_node
+        self.size += 1
+
+
 
     def append(self, item):
         """Insert the given item at the tail of this linked list"""
@@ -97,6 +121,7 @@ class LinkedList(object):
             self.tail.next = new_node
         # Update tail to new node regardless
         self.tail = new_node
+        self.size += 1
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list"""
@@ -111,6 +136,7 @@ class LinkedList(object):
             new_node.next = self.head
         # Update head to new node regardless
         self.head = new_node
+        self.size += 1
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError"""
@@ -126,6 +152,7 @@ class LinkedList(object):
             if current.data == item:
                 # We found data matching the given item, so update found flag
                 found = True
+                self.size -= 1
             else:
                 # Skip to the next node
                 previous = current
